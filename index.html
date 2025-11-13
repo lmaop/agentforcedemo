@@ -250,70 +250,9 @@
         we'll prioritise your request.
       </p>
       <hr style="border: none; height: 1px; background: #e5e7eb; margin: 12px 0" />
-      <p class="small">
-        This form is a front-end sample. To actually send messages, set up a
-        server endpoint to accept POST requests at
-        <code>/api/contact</code> or wire it to your Salesforce endpoint.
-      </p>
     </aside>
   </main>
 
-  <script>
-    (function () {
-      const form = document.getElementById("contactForm");
-      const notice = document.getElementById("formNotice");
-      const clearBtn = document.getElementById("clearBtn");
-
-      function show(type, text) {
-        notice.innerHTML = "";
-        const d = document.createElement("div");
-        d.className = "notice " + (type === "ok" ? "success" : "error");
-        d.textContent = text;
-        notice.appendChild(d);
-      }
-
-      function validate() {
-        const name = form.name.value.trim();
-        const email = form.email.value.trim();
-        const msg = form.message.value.trim();
-        const consent = form.consent.checked;
-        if (!name) return "Please enter your name.";
-        if (!email) return "Please enter a valid email.";
-        if (!msg) return "Please enter a message.";
-        if (!consent) return "Please agree to be contacted.";
-        return "";
-      }
-
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        notice.innerHTML = "";
-        const err = validate();
-        if (err) {
-          show("err", err);
-          return;
-        }
-
-        const submitBtn = form.querySelector('button[type="submit"]');
-        submitBtn.disabled = true;
-        submitBtn.textContent = "Sending...";
-
-        setTimeout(() => {
-          submitBtn.disabled = false;
-          submitBtn.textContent = "Send message";
-          show(
-            "ok",
-            "Thanks — your message has been sent. We will contact you shortly."
-          );
-          form.reset();
-        }, 900);
-      });
-
-      clearBtn.addEventListener("click", () => {
-        form.reset();
-        notice.innerHTML = "";
-      });
-    })();
-  </script>
   <script type="text/javascript">
     function initEmbeddedMessaging() {
       try {
@@ -340,3 +279,4 @@
 
 
 </html>
+
