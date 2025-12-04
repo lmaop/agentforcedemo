@@ -229,6 +229,34 @@
  function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") {var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500); 
 </script>
 
+ <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const reason = document.getElementById("reason");
+        const secondDropdown = document.getElementById("secondDropdown");
+        const seconddropp = document.getElementById("seconddrop");
+        const customerinformation = document.getElementById("customerInfo");
+        const defaultvalue = document.getElementById("default");
+
+        reason.addEventListener("change", function () {
+          const selectedCategory = this.value;
+          
+          if (selectedCategory) {
+            console.log(selectedCategory);
+            seconddropp.style.visibility = 'visible';
+          }
+        });
+
+
+        secondDropdown.addEventListener("change", function () {
+          const selectedCategory = this.value;
+          
+          if (selectedCategory) {
+            customerinformation.style.visibility = 'visible';
+          }
+        });
+      });
+    </script>
+
 
 <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00Dg5000000qzx3" method="POST">
 
@@ -236,6 +264,57 @@
 <input type=hidden name="orgid" value="00Dg5000000qzx3">
 <input type=hidden name="retURL" value="https://lmaop.github.io/agentforcedemo/">
 
+<div id="reasondropdown">
+          <label for="reason">Please tell us the reason for your enquiry: </label><br/>
+          <select id="reason">
+            <option value="default" disabled selected >Choose an option</option>
+            <option value="question" id="question" >I have a question</option>
+            <option value="concern" id="concern">I have a concern</option>
+          </select>
+        </div>
+
+        <br />
+
+        <div id="seconddrop">
+          <label for="secondDropdown">Please give us some more details:</label><br/>
+          <select id="secondDropdown">
+            <option value="default" disabled selected>Choose an option</option>
+            <option value="product">It is about a product</option>
+            <option value="business">It is about The Magnum Icecream business or a brand</option>
+          </select>
+        </div>
+        <!--  ----------------------------------------------------------------------  -->
+        <br />
+        <div id="customerInfo">
+          <h5>Your Details</h5>
+          <label for="name">Name</label
+          ><br/><input
+            id="name"
+            maxlength="80"
+            name="name"
+            size="20"
+            type="text"
+          /><br />
+
+          <label for="email">Email*</label
+          ><br/><input
+            id="email"
+            maxlength="80"
+            name="email"
+            size="20"
+            type="text"
+          /><br />
+
+          <label for="phone">Phone</label
+          ><br/><input
+            id="phone"
+            maxlength="40"
+            name="phone"
+            size="20"
+            type="text"
+          /><br />
+
+          
 
 <!-- 
 <label for="name">Contact Name</label><input  id="name" maxlength="80" name="name" size="20" type="text" /><br>
@@ -244,13 +323,48 @@
 
 <label for="phone">Phone</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br> -->
 
-<label for="subject">Subject</label><input  id="subject" maxlength="80" name="subject" size="20" type="text" /><br>
+<label for="subject">Subject</label> <input id="subject" maxlength="80" name="subject" size="20" type="text" /><br>
+<label for="description">Description</label><br/> <textarea name="description"></textarea><br />
+          
+<input
+            id="00NE0000005TJue"
+            name="00NE0000005TJue"
+            type="hidden"
+            value="Magnum"
+          />
+<input
+            id="00NE0000006IedH"
+            name="00NE0000006IedH"
+            type="hidden"
+            value="United States"
+          />
 
 <!-- <label for="description">Description</label><textarea name="description"></textarea><br> -->
 <div class="g-recaptcha" data-sitekey="6LefngwsAAAAAC4zNA4nk1VmLayVd4iE4Rxlz9Fb"></div><br>
 <input type="submit" name="submit">
 
+  
 </form>
+<style>
+  body{
+background-color: red;
+}
+
+.contactusForm{
+    background-color: rgb(189, 189, 189);
+    text-align: left;
+    padding-left: 25px;
+    
+}
+
+h1{
+    background-color:  white;
+}
+
+#customerInfo,#seconddrop{
+    visibility: hidden;
+}
+</style>
 
     </section>
     
@@ -292,6 +406,7 @@
 
 
 </html>
+
 
 
 
