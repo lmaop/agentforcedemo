@@ -265,19 +265,19 @@
 <input type=hidden name="retURL" value="https://lmaop.github.io/agentforcedemo/">
 
 <div id="reasondropdown">
-          <label for="reason">Please tell us the reason for your enquiry: </label><br/>
-          <select id="reason">
+          <label for="reason">Please tell us the reason for your enquiry: *</label>
+          <select id="reason" required>
             <option value="default" disabled selected >Choose an option</option>
             <option value="question" id="question" >I have a question</option>
             <option value="concern" id="concern">I have a concern</option>
           </select>
         </div>
 
-      
+      <br/>
 
         <div id="seconddrop">
-          <label for="secondDropdown">Please give us some more details:</label><br/>
-          <select id="secondDropdown">
+          <label for="secondDropdown">Please give us some more details: *</label>
+          <select id="secondDropdown" required>
             <option value="default" disabled selected>Choose an option</option>
             <option value="product">It is about a product</option>
             <option value="business">It is about The Magnum Icecream business or a brand</option>
@@ -285,8 +285,8 @@
         </div>
        
         <div id="customerInfo">
-          <h5>Your Details</h5>
-          <label for="name">Name</label
+          <h3>Your Details</h3>
+          <label for="name">Name *</label
           ><input
             id="name"
             maxlength="80"
@@ -296,7 +296,7 @@
                   required
           /><br />
 
-          <label for="email">Email*</label
+          <label for="email">Email *</label
           ><input
             id="email"
             maxlength="80"
@@ -324,8 +324,8 @@
 
 <label for="phone">Phone</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br> -->
 
-<label for="subject">Subject</label> <input id="subject" maxlength="80" name="subject" size="20" type="text" required/><br>
-<label for="description">Description</label><br/> <textarea name="description" required></textarea><br />
+<label for="subject">Subject *</label> <input id="subject" maxlength="80" name="subject" size="20" type="text" required/><br>
+<label for="description">Description *</label><br/> <textarea name="description" required></textarea><br />
           
 <input
             id="00NE0000005TJue"
@@ -407,6 +407,7 @@ h1{
 
 
 </html>
+
 
 
 
