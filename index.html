@@ -402,6 +402,15 @@ h1{
       try {
         embeddedservice_bootstrap.settings.language = "en_US"; // For example, enter 'en' or 'en-US'
 
+        window.addEventListener("onEmbeddedMessagingReady", () => {
+        console.log("Embedded Messaging is ready. Setting hidden brand variable...");
+        
+       
+        embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+          "Brand_Name": "Magnum"
+        });
+      });
+
         embeddedservice_bootstrap.init(
           "00Dg5000000qzx3",
           "Agentforce",
@@ -423,6 +432,7 @@ h1{
 
 
 </html>
+
 
 
 
